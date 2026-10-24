@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
+import { colourOptions } from "@/components/storefront/catalog";
 
 export default function NewProductPage() {
     const router = useRouter();
@@ -20,6 +21,7 @@ export default function NewProductPage() {
         category: "Silk",
         collection: "",
         description: "",
+        colors: [] as string[],
         images: [] as string[],
         videos: [] as string[],
         in_stock: true,
@@ -125,6 +127,7 @@ export default function NewProductPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!formData.colors.length) { alert("Select at least one product colour shown in the photos."); return; }
         setLoading(true);
 
         try {
@@ -139,6 +142,7 @@ export default function NewProductPage() {
                 price_usd: parseFloat(formData.price_usd),
                 category: formData.category,
                 description: formData.description,
+                colors: formData.colors,
                 images: formData.images,
                 in_stock: formData.in_stock,
                 featured: false,
@@ -276,6 +280,14 @@ export default function NewProductPage() {
                                 </select>
                             </div>
                         </div>
+
+                        <fieldset className="border border-gray-200 rounded-lg p-4">
+                            <legend className="px-2 text-sm font-medium text-gray-700">Product colours (required)</legend>
+                            <p className="text-xs text-gray-500 mb-3">Select the prominent fabric colours shown across your product photos. Include each colour variant; do not select Gold just for zari trim.</p>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                {colourOptions.map(option=><label key={option.name} className="flex items-center gap-2 text-sm text-gray-700"><input type="checkbox" checked={formData.colors.includes(option.name)} onChange={()=>setFormData(current=>({...current,colors:current.colors.includes(option.name)?current.colors.filter(value=>value!==option.name):[...current.colors,option.name]}))}/>{option.name}</label>)}
+                            </div>
+                        </fieldset>
 
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>

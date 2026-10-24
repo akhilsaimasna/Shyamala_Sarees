@@ -19,6 +19,7 @@ export async function storefrontProducts(): Promise<{ products: StoreProduct[]; 
                 price_inr: product.price_inr, price_usd: product.price_usd, category: product.category,
                 collection: product.collection, description: product.description, in_stock: product.in_stock === true,
                 featured: product.featured === true, best_seller: product.best_seller === true,
+                colors: Array.isArray(product.colors) ? product.colors.filter((value: unknown): value is string => typeof value === "string") : [],
                 color: product.color, fabric: product.fabric, compare_at_price: product.compare_at_price,
                 images: Array.isArray(product.images) ? product.images.filter((image: unknown): image is string => typeof image === "string") : [] })) as StoreProduct[];
         return { products, catalogUnavailable: false };

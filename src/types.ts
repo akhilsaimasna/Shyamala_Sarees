@@ -1,6 +1,7 @@
 export interface Product {
     id: string;
     name: string;
+    colors?: string[];      // Colour families shown in the product gallery
     name_te?: string;        // Telugu name (optional)
     slug: string;
     price_inr: number;

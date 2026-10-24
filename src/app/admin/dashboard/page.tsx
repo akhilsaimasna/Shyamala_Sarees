@@ -76,6 +76,7 @@ export default function AdminDashboard() {
                                     <th className="p-4 text-sm font-semibold text-gray-600">Image</th>
                                     <th className="p-4 text-sm font-semibold text-gray-600">Name</th>
                                     <th className="p-4 text-sm font-semibold text-gray-600">Category</th>
+                                    <th className="p-4 text-sm font-semibold text-gray-600">Colours</th>
                                     <th className="p-4 text-sm font-semibold text-gray-600">Price</th>
                                     <th className="p-4 text-sm font-semibold text-gray-600">Stock</th>
                                     <th className="p-4 text-sm font-semibold text-gray-600">Actions</th>
@@ -84,11 +85,11 @@ export default function AdminDashboard() {
                             <tbody className="divide-y divide-gray-100">
                                 {loading ? (
                                     <tr>
-                                        <td colSpan={6} className="p-8 text-center text-gray-500">Loading products...</td>
+                                        <td colSpan={7} className="p-8 text-center text-gray-500">Loading products...</td>
                                     </tr>
                                 ) : products.length === 0 ? (
                                     <tr>
-                                        <td colSpan={6} className="p-8 text-center text-gray-500">No products found.</td>
+                                        <td colSpan={7} className="p-8 text-center text-gray-500">No products found.</td>
                                     </tr>
                                 ) : (
                                     products.map((product) => (
@@ -102,6 +103,7 @@ export default function AdminDashboard() {
                                             </td>
                                             <td className="p-4 font-medium text-gray-900">{product.name}</td>
                                             <td className="p-4 text-gray-600">{product.category}</td>
+                                            <td className="p-4 text-sm text-gray-600">{product.colors?.join(", ") || "Not set"}</td>
                                             <td className="p-4 text-gray-900">₹{product.price_inr.toLocaleString()}</td>
                                             <td className="p-4">
                                                 <span
