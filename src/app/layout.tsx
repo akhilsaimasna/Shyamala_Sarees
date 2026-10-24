@@ -4,10 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import LanguageModal from "@/components/LanguageModal";
-import ChatBot from "@/components/ChatBot";
+import StorefrontShell from "@/components/StorefrontShell";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -38,11 +35,7 @@ export default function RootLayout({
             >
                 <LanguageProvider>
                     <CartProvider>
-                        <LanguageModal />
-                        <Header />
-                        {children}
-                        <Footer />
-                        <ChatBot />
+                        <StorefrontShell>{children}</StorefrontShell>
                     </CartProvider>
                 </LanguageProvider>
             </body>

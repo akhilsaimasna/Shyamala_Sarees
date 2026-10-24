@@ -18,6 +18,7 @@ interface CartContextType {
     addToCart: (product: Product) => void;
     removeFromCart: (productId: string) => void;
     clearCart: () => void;
+    updateQuantity: (productId: string, quantity: number) => void;
     cartCount: number;
     cartTotal: number;
 }
@@ -26,31 +27,36 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
     const [cart, setCart] = useState<CartItem[]>([]);
+    const [loaded, setLoaded] = useState(false);
 
     // Load from local storage
     useEffect(() => {
-        const savedCart = localStorage.getItem("masna_cart");
-        if (savedCart) {
-            try {
-                setCart(JSON.parse(savedCart));
-            } catch (e) {
-                console.error("Failed to parse cart", e);
-            }
-        }
+        try {
+            const saved = JSON.parse(localStorage.getItem("masna_cart") || "[]");
+            if (Array.isArray(saved)) setCart(saved.filter((item): item is CartItem =>
+                item && typeof item.id === "string" && typeof item.name === "string"
+                && typeof item.price_inr === "number" && Number.isFinite(item.price_inr) && item.price_inr >= 0
+                && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 20
+                && Array.isArray(item.images)
+            ));
+        } catch { /* An unavailable or damaged saved bag starts empty. */ }
+        setLoaded(true);
     }, []);
 
     // Save to local storage
     useEffect(() => {
-        localStorage.setItem("masna_cart", JSON.stringify(cart));
-    }, [cart]);
+        if (!loaded) return;
+        try { localStorage.setItem("masna_cart", JSON.stringify(cart)); } catch { /* Keep shopping usable without browser storage. */ }
+    }, [cart, loaded]);
 
     const addToCart = (product: Product) => {
+        if (!product.in_stock) return;
         setCart((prev) => {
             const existing = prev.find((item) => item.id === product.id);
             if (existing) {
                 return prev.map((item) =>
                     item.id === product.id
-                        ? { ...item, quantity: item.quantity + 1 }
+                        ? { ...item, quantity: Math.min(20, item.quantity + 1) }
                         : item
                 );
             }
@@ -66,6 +72,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setCart([]);
     };
 
+    const updateQuantity = (productId: string, quantity: number) => {
+        if (!Number.isFinite(quantity)) return;
+        const next = Math.min(20, Math.max(0, Math.floor(quantity)));
+        setCart(previous => next === 0 ? previous.filter(item => item.id !== productId)
+            : previous.map(item => item.id === productId ? { ...item, quantity: next } : item));
+    };
+
     const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
     const cartTotal = cart.reduce(
         (acc, item) => acc + item.price_inr * item.quantity,
@@ -74,7 +87,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     return (
         <CartContext.Provider
-            value={{ cart, addToCart, removeFromCart, clearCart, cartCount, cartTotal }}
+            value={{ cart, addToCart, removeFromCart, clearCart, updateQuantity, cartCount, cartTotal }}
         >
             {children}
         </CartContext.Provider>
