@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { filterCatalog, enquiryHref, validImage, type StoreProduct } from "../src/components/storefront/catalog.ts";
+import { filterCatalog, enquiryHref, validImage, matchesSearch, matchesColour, priceLabel, type StoreProduct } from "../src/components/storefront/catalog.ts";
 
 const products: StoreProduct[] = [
  {id:"1",name:"Maroon Kanchi Silk",slug:"kanchi",price_inr:12000,price_usd:0,category:"Sarees",collection:"Kanchi silk",description:"Wedding weave",images:[],in_stock:true,featured:true,best_seller:false},
@@ -43,4 +43,34 @@ test("WhatsApp enquiry includes quantity, extended price and confirmation bounda
 });
 test("sample enquiries identify themselves instead of implying live inventory",()=>{
  assert.match(new URL(enquiryHref([{...products[0],quantity:1}],true)).searchParams.get("text")!,/sample selections/);
+});
+
+
+test("new arrivals includes inventory collection even without featured flag",()=>{
+ const arrival={...products[1],collection:"new-arrivals",featured:false};
+ assert.deepEqual(filterCatalog([arrival],{...base,edit:"new"}).map(p=>p.id),["2"]);
+});
+test("search supports separated terms and Telugu names",()=>{
+ const product={...products[0],name_te:"కంచి పట్టు"};
+ assert.equal(matchesSearch(product,"silk maroon"),true);
+ assert.equal(matchesSearch(product,"కంచి"),true);
+ assert.equal(matchesSearch(product,"silk cotton"),false);
+});
+test("colour uses description words and respects explicit metadata",()=>{
+ assert.equal(matchesColour({...products[0],name:"Silk Saree",description:"Green body with gold border"},"Green"),true);
+ assert.equal(matchesColour({...products[0],name:"Featured silk",description:""},"Red"),false);
+ assert.equal(matchesColour({...products[0],color:"Blue"},"Maroon"),false);
+});
+test("unknown prices require confirmation and never qualify for a budget",()=>{
+ const unknown={...products[0],id:"quote",price_inr:0};
+ assert.equal(priceLabel(unknown),"Price on request");
+ assert.equal(filterCatalog([unknown],{...base,includeUnpriced:true}).length,1);
+ assert.equal(filterCatalog([unknown],{...base,includeUnpriced:true,edit:"budget"}).length,0);
+ assert.equal(filterCatalog([unknown],{...base,maxPrice:5000}).length,0);
+ for(const sort of ["price-low","price-high"]){
+  assert.equal(filterCatalog([unknown,products[1]],{...base,includeUnpriced:true,sort}).at(-1)?.id,"quote");
+ }
+ const message=new URL(enquiryHref([{...unknown,quantity:2}])).searchParams.get("text")!;
+ assert.match(message,/Price on request/);
+ assert.doesNotMatch(message,/₹0/);
 });
