@@ -1,0 +1,541 @@
+{
+  "reviewed_on": "2026-10-24",
+  "method": "Visual review of existing product photography. Tags describe prominent fabric colour families shown across each gallery, including substantial contrast panels; metallic zari trim alone is not tagged Gold. Availability and exact shade require confirmation.",
+  "products": [
+    {
+      "id": "6350628e-7aba-4262-91be-4c499c7b2b98",
+      "name": "*BANARASI Semi Cotton Silk",
+      "colors": [
+        "Purple"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/d4eftydu095-1770047442833.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "ef8b8d91-15c9-4856-99c2-46ca5c6d0fb7",
+      "name": "Banarasi Semi Cotton Silk",
+      "colors": [
+        "Purple",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/7bx2zjhwnz2-1770048165697.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "e9501289-d55f-4726-8e24-d6d7367a395c",
+      "name": "Banarasi Semi cotton Silk",
+      "colors": [
+        "Yellow",
+        "Purple"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/z2d33qop9e-1770048596399.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "36136968-be20-4f60-9713-003f552c8f6f",
+      "name": "Banarasi Semi Cotton Silk",
+      "colors": [
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/w4xm7kuvlag-1770048766228.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "22020ed6-36b7-4bb0-b2c6-7fcf9f9c589d",
+      "name": "Banarasi Semi Cotton Silk",
+      "colors": [
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/evnn6j5h4dw-1770048857057.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "3fd33bb7-64c8-4c8a-b04b-5c7e45b38ccb",
+      "name": "Banarasi Warm Silk ",
+      "colors": [
+        "Green",
+        "Pink",
+        "Red",
+        "Purple",
+        "Blue"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/khycfpp2g2g-1770183014027.png",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "98cceacb-f752-4dbb-ace4-22733099d14f",
+      "name": "Pure Pattu Saree",
+      "colors": [
+        "Gold",
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/lc6qfnv8518-1770276946861.jpeg",
+      "reviewed_image_count": 1
+    },
+    {
+      "id": "118f4765-321c-49b9-9be8-d0fcb2ea6ffe",
+      "name": "Kanchipuram Pure Silk ",
+      "colors": [
+        "Purple",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/em8ngyjm1if-1770442645503.jpeg",
+      "reviewed_image_count": 5
+    },
+    {
+      "id": "f69603c6-91ea-4676-82b4-e8fe9514b0de",
+      "name": "Pure Pattu Saree",
+      "colors": [
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/f2s0umz3uvb-1771301615026.jpeg",
+      "reviewed_image_count": 2
+    },
+    {
+      "id": "85cd0927-a2b8-4d19-acaf-8453154e4a84",
+      "name": "Pure Pattu Saree ",
+      "colors": [
+        "Gold"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/632355qcmsq-1770276078245.jpeg",
+      "reviewed_image_count": 4
+    },
+    {
+      "id": "c3c5d75c-5a6e-48bb-9570-73d4e8780f5d",
+      "name": "Pure Pattu Saree",
+      "colors": [
+        "Gold"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/7y5suosawix-1770277065958.jpeg",
+      "reviewed_image_count": 4
+    },
+    {
+      "id": "cb8f9e70-486c-4e27-80de-ed8d800fe074",
+      "name": "Venkatagiri Handloom weavers ",
+      "colors": [
+        "Red",
+        "Pink",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/uqb1luh3n3-1770309760414.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "62cff37b-18ce-4dba-a598-44d2e02fbd5d",
+      "name": "Kanchipuram Pure Handloom Silk saree ",
+      "colors": [
+        "Blue",
+        "Brown",
+        "Purple",
+        "Maroon",
+        "Red",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/s8aaqbdunxd-1770352402820.jpeg",
+      "reviewed_image_count": 11
+    },
+    {
+      "id": "7e36d919-2498-485b-ad9b-fc9a29a79579",
+      "name": "Pure Kanchipuram Traditional Silk sarees",
+      "colors": [
+        "Blue",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/p0xzatgsgs-1770375103288.jpeg",
+      "reviewed_image_count": 5
+    },
+    {
+      "id": "02ee69a2-519e-46ec-b0f3-e99eab0b5fd4",
+      "name": "Semi Gadwal Lines Sarees",
+      "colors": [
+        "Grey",
+        "Blue",
+        "Green",
+        "Yellow",
+        "Orange",
+        "Pink",
+        "White",
+        "Purple",
+        "Red"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/a6lmbct083j-1770381899446.jpeg",
+      "reviewed_image_count": 10
+    },
+    {
+      "id": "acb277a3-af0c-43f4-b883-369e8462cca5",
+      "name": "Kanchipuram  Pure Handloom Sarees ",
+      "colors": [
+        "Green",
+        "Orange",
+        "Beige",
+        "Purple",
+        "Grey",
+        "Pink",
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/2cp3ejofpzg-1770382262189.jpeg",
+      "reviewed_image_count": 15
+    },
+    {
+      "id": "9655b1fc-d50f-460a-b0af-393f31de1704",
+      "name": "Semi silk saree",
+      "colors": [
+        "Yellow",
+        "Green",
+        "Orange",
+        "Blue",
+        "Purple",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/qcavdq5iwd9-1770621590741.jpeg",
+      "reviewed_image_count": 14
+    },
+    {
+      "id": "d2141669-735d-4397-a0bd-b9745ba0e345",
+      "name": "Banarasi Semi Katan Sarees ",
+      "colors": [
+        "Red",
+        "Green",
+        "Orange",
+        "Pink",
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/k6khbpmvoy-1770622484764.jpeg",
+      "reviewed_image_count": 13
+    },
+    {
+      "id": "3045a5aa-2352-41e4-939f-ac1f9a1ed26d",
+      "name": "Venkatagiri handloom Saree",
+      "colors": [
+        "Red",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/ijw7zh1fae-1770623010530.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "5716f607-a2f3-4c55-a27f-bf8b0f490e78",
+      "name": "Kuppadam Sarees",
+      "colors": [
+        "Beige",
+        "Green",
+        "White",
+        "Black",
+        "Blue"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/ybm6m3yviqd-1770623878476.jpeg",
+      "reviewed_image_count": 8
+    },
+    {
+      "id": "126487d7-9a21-4835-9b36-850d1a9d3976",
+      "name": "Mangalagiri Kuppatam Plain Sarees ",
+      "colors": [
+        "White",
+        "Purple",
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/fs6cumxf1kd-1770624142038.jpeg",
+      "reviewed_image_count": 3
+    },
+    {
+      "id": "84c6f9a1-0f57-4efc-86dd-8ed3c111fe8f",
+      "name": " Venkatagiri Handloom Sarees ",
+      "colors": [
+        "Purple",
+        "Blue"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/ztndqkdel48-1770628993378.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "aa9aef0c-74d9-4e66-9159-240afd657b46",
+      "name": "Kanchipuram Pure Handloom Sarees",
+      "colors": [
+        "Yellow",
+        "Blue",
+        "Grey",
+        "Pink",
+        "Purple",
+        "Green",
+        "Orange",
+        "Black"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/c4t6fiylu4-1770631729256.jpeg",
+      "reviewed_image_count": 11
+    },
+    {
+      "id": "0452be1f-9c22-4a03-8c10-0a5359ef3467",
+      "name": "Kanchipuram pure handloom soft silk",
+      "colors": [
+        "Green",
+        "Red",
+        "Maroon",
+        "Purple"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/8fefjr4bvdl-1773400376424.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "9c27f40f-2963-4a9a-b80a-ee3df34fd552",
+      "name": "pure handloom Jaquard  Silk",
+      "colors": [
+        "Maroon",
+        "Gold",
+        "Blue",
+        "Red",
+        "Pink",
+        "Beige",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/3el9aduytn2-1770736409577.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "f97397a5-c663-4490-b766-55d2b818333b",
+      "name": "Kanchipuram Handloom Sarees ",
+      "colors": [
+        "Pink",
+        "Green",
+        "Purple",
+        "Blue",
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/hgzsuvjgtiw-1770736700799.jpeg",
+      "reviewed_image_count": 48
+    },
+    {
+      "id": "749269c4-309a-42ff-a411-b7c9a338db40",
+      "name": "Kanchipuram Handloom Saree",
+      "colors": [
+        "Green",
+        "Purple",
+        "Blue",
+        "Grey",
+        "Pink",
+        "Orange",
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/w9h56dv5wvo-1770825337203.jpeg",
+      "reviewed_image_count": 12
+    },
+    {
+      "id": "ac3ecb47-70c9-430d-a641-182d7fc35c24",
+      "name": "Banarasi Semi georgette dyed Sarees ",
+      "colors": [
+        "Yellow",
+        "Red",
+        "Blue",
+        "Orange",
+        "Maroon",
+        "Pink",
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/1evpl2nlouc-1770898244433.jpeg",
+      "reviewed_image_count": 8
+    },
+    {
+      "id": "d6638ff5-4d1c-4376-9b85-a0df0610b009",
+      "name": "Semi Gadwal: Paithani Meena Collection ",
+      "colors": [
+        "Beige",
+        "Pink",
+        "Green",
+        "Blue",
+        "Brown",
+        "Orange",
+        "Purple",
+        "Red",
+        "Yellow"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/pw9ar8n6mc-1773400470132.jpeg",
+      "reviewed_image_count": 16
+    },
+    {
+      "id": "7dc75fad-d491-421d-b1b5-3dd01389fcb2",
+      "name": "Pure handloom Double Warp Soft Silk",
+      "colors": [
+        "White",
+        "Yellow",
+        "Purple",
+        "Blue",
+        "Grey",
+        "Pink",
+        "Black",
+        "Brown",
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/97q8guyrn3-1770898457967.jpeg",
+      "reviewed_image_count": 12
+    },
+    {
+      "id": "64a07e56-74d0-4827-8324-f0e8ecf9a8e9",
+      "name": "Mangalagiri Kuppadam: Silver Edition",
+      "colors": [
+        "Purple",
+        "Pink",
+        "White",
+        "Green",
+        "Blue",
+        "Beige",
+        "Yellow",
+        "Maroon"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/s62lqy2mj5m-1770898673767.jpeg",
+      "reviewed_image_count": 13
+    },
+    {
+      "id": "21366a1b-e1d0-4e08-a65e-ca8c0c4bc437",
+      "name": "Pure Handloom double warp soft Saree",
+      "colors": [
+        "Brown",
+        "Black",
+        "White",
+        "Yellow",
+        "Orange",
+        "Pink",
+        "Blue",
+        "Purple"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/5vff285wjw3-1771301930454.jpeg",
+      "reviewed_image_count": 9
+    },
+    {
+      "id": "ee21b3ae-0249-4a48-a8ae-a06a9dfee53e",
+      "name": "Premium Vintage Gadwal Collectio",
+      "colors": [
+        "Yellow",
+        "Red",
+        "Green",
+        "Pink",
+        "Blue",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/59gjm0csykk-1771593856020.jpeg",
+      "reviewed_image_count": 14
+    },
+    {
+      "id": "e051336b-a546-415b-8132-658c5ca0b1a7",
+      "name": "Kanchipuram Handloom Silks",
+      "colors": [
+        "Gold",
+        "Green",
+        "Orange"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/nl8b3g1f9sj-1771596602643.jpeg",
+      "reviewed_image_count": 6
+    },
+    {
+      "id": "0746e0b9-a99c-423f-a1aa-037da401ca83",
+      "name": "Mangalagiri Pattu Kanchi Border ",
+      "colors": [
+        "Grey",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/syqg720y6ri-1776304813603.jpeg",
+      "reviewed_image_count": 2
+    },
+    {
+      "id": "d61ebee8-e669-4ba8-9bd2-e5f4eb71bff0",
+      "name": "Fancy saree",
+      "colors": [
+        "Blue",
+        "Green",
+        "Orange",
+        "Black",
+        "Red",
+        "Yellow",
+        "Purple"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/5yilkhxdlil-1776841042366.jpeg",
+      "reviewed_image_count": 8
+    },
+    {
+      "id": "2492f516-acec-4aec-b8e2-7b3bf77a0f00",
+      "name": "Pochampally Ikkat",
+      "colors": [
+        "Beige",
+        "Red",
+        "Green",
+        "Pink",
+        "Black",
+        "Blue",
+        "Yellow"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/6k1wbpg5b8l-1777452244552.jpeg",
+      "reviewed_image_count": 9
+    },
+    {
+      "id": "91a7027d-40b9-4278-93b2-c74928709698",
+      "name": "Dola Silk Kalamkari",
+      "colors": [
+        "Black",
+        "White",
+        "Orange",
+        "Yellow",
+        "Pink",
+        "Purple",
+        "Beige",
+        "Red"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/33optdesc6g-1777537169328.jpeg",
+      "reviewed_image_count": 9
+    },
+    {
+      "id": "7ec42913-cae1-4e55-9d41-5534bfcc6c63",
+      "name": "Sico Gadwal butti (or butta)",
+      "colors": [
+        "Blue",
+        "Purple",
+        "Green",
+        "Orange",
+        "Pink",
+        "Maroon",
+        "Yellow",
+        "Beige",
+        "Grey"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/10vybcsp7r4-1778130051057.png",
+      "reviewed_image_count": 3
+    },
+    {
+      "id": "4a906885-5146-41ae-abc6-d3390384ff61",
+      "name": "Kanchipuram ",
+      "colors": [
+        "Green"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/1lw421y8ne1-1780471604912.jpeg",
+      "reviewed_image_count": 2
+    },
+    {
+      "id": "6aeee645-5c09-412d-8c6d-79c2ebf5e4c9",
+      "name": "Mangalagiri Pattu  ",
+      "colors": [
+        "Black",
+        "Grey",
+        "White",
+        "Red",
+        "Orange",
+        "Green",
+        "Maroon",
+        "Yellow",
+        "Brown",
+        "Beige",
+        "Pink"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/8w29fyzsbk9-1780899157088.jpeg",
+      "reviewed_image_count": 13
+    },
+    {
+      "id": "763bb32a-00ee-48ba-9195-882ccccaaa29",
+      "name": "Kuppadam Pattu Sarees",
+      "colors": [
+        "Green",
+        "Blue",
+        "Pink",
+        "Yellow"
+      ],
+      "reference_image": "https://kufsqjyzoskxfmphjbwc.supabase.co/storage/v1/object/public/product-images/shb6nv2aepj-1780899483040.jpeg",
+      "reviewed_image_count": 4
+    }
+  ]
+}

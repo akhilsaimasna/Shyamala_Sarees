@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { filterCatalog, enquiryHref, validImage, matchesSearch, matchesColour, priceLabel, type StoreProduct } from "../src/components/storefront/catalog.ts";
+import { readFileSync } from "node:fs";
+import { filterCatalog, enquiryHref, validImage, matchesSearch, matchesColour, priceLabel, colourLabel, colourOptions, type StoreProduct } from "../src/components/storefront/catalog.ts";
 
 const products: StoreProduct[] = [
  {id:"1",name:"Maroon Kanchi Silk",slug:"kanchi",price_inr:12000,price_usd:0,category:"Sarees",collection:"Kanchi silk",description:"Wedding weave",images:[],in_stock:true,featured:true,best_seller:false},
@@ -73,4 +74,37 @@ test("unknown prices require confirmation and never qualify for a budget",()=>{
  const message=new URL(enquiryHref([{...unknown,quantity:2}])).searchParams.get("text")!;
  assert.match(message,/Price on request/);
  assert.doesNotMatch(message,/₹0/);
+});
+
+// Photo-reviewed inventory is also a regression fixture for metadata coverage.
+
+const review = JSON.parse(readFileSync(new URL("../docs/catalog-colour-review.json",import.meta.url),"utf8")) as {products:{id:string;name:string;colors:string[];reference_image:string;reviewed_image_count:number}[]};
+test("every current listing has photo-reviewed, supported and unique colour tags",()=>{
+ assert.equal(review.products.length,42);
+ assert.equal(new Set(review.products.map(p=>p.id)).size,42);
+ for(const product of review.products){
+  assert.ok(product.colors.length>0,product.name);
+  assert.equal(new Set(product.colors).size,product.colors.length);
+  assert.ok(product.colors.every(name=>colourOptions.some(option=>option.name===name)),product.name);
+  assert.ok(product.reference_image.startsWith("https://kufsqjyzoskxfmphjbwc.supabase.co/storage/"));
+ }
+});
+test("explicit gallery colours override incidental description words and support variants",()=>{
+ const tagged={...products[0],description:"Gold zari on a red contrast blouse",colors:["Green","Blue"]};
+ assert.equal(matchesColour(tagged,"green"),true);
+ assert.equal(matchesColour(tagged,"Blue"),true);
+ assert.equal(matchesColour(tagged,"Gold"),false);
+ assert.equal(matchesColour(tagged,"Red"),false);
+ assert.equal(colourLabel(tagged),"Green, Blue");
+ assert.equal(matchesSearch(tagged,"blue silk"),true);
+});
+test("colour and budget filters still combine",()=>{
+ const tagged=products.map(product=>({...product,colors:["Green"]}));
+ assert.deepEqual(filterCatalog(tagged,{...base,colour:"Green",edit:"budget",inStock:true}).map(p=>p.id),["2"]);
+ assert.equal(filterCatalog(tagged,{...base,colour:"Blue"}).length,0);
+});
+test("all photographed colour families can be discovered",()=>{
+ for(const option of colourOptions){
+  assert.ok(review.products.some(product=>product.colors.includes(option.name)),option.name);
+ }
 });

@@ -17,9 +17,12 @@ export const colourOptions = [
   { name: "Green", hex: "#497360" }, { name: "Blue", hex: "#345888" },
   { name: "Gold", hex: "#c8a453" }, { name: "Purple", hex: "#7d5888" },
   { name: "Red", hex: "#ba4141" }, { name: "Beige", hex: "#d1c5aa" },
+  { name: "Yellow", hex: "#e5c33e" }, { name: "Orange", hex: "#dc793c" },
+  { name: "Black", hex: "#292629" }, { name: "White", hex: "#faf8f3" },
+  { name: "Grey", hex: "#939497" }, { name: "Brown", hex: "#80583f" },
 ];
 export function productText(product: StoreProduct) {
-  return [product.name, product.name_te, product.collection, product.category, product.description, product.color, product.fabric].filter(Boolean).join(" ").toLowerCase();
+  return [product.name, product.name_te, product.collection, product.category, product.description, product.colors?.join(" "), product.color, product.fabric].filter(Boolean).join(" ").toLowerCase();
 }
 export function matchesSearch(product: StoreProduct, query: string) {
   const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -28,9 +31,11 @@ export function matchesSearch(product: StoreProduct, query: string) {
 }
 export function matchesColour(product: StoreProduct, colour: string) {
   if (!colour) return true;
+  if (product.colors?.length) return product.colors.some(value=>value.toLowerCase()===colour.toLowerCase());
   const text = product.color || [product.name, product.description].join(" ");
   return text.toLowerCase().split(/[^\p{L}\p{N}]+/u).includes(colour.toLowerCase());
 }
+export const colourLabel = (product: StoreProduct) => product.colors?.length ? product.colors.join(", ") : product.color || "";
 export const isNewArrival = (product: StoreProduct) => product.featured || product.collection?.toLowerCase().replace(/[ _]+/g,"-") === "new-arrivals";
 export const collectionLabel = (product: StoreProduct) => (product.collection || product.category).replace(/[-_]/g," ").replace(/\b\w/g,letter=>letter.toUpperCase());
 export function validImage(url: string | undefined): string | undefined {
