@@ -22,20 +22,17 @@ create policy "Public products are viewable by everyone"
   on products for select
   using ( true );
 
--- Create a policy that allows authenticated users (admins) to insert/update/delete
--- For simplicity in this demo, we are allowing anon to insert (NOT SECURE FOR PRODUCTION)
--- In a real app, you would restrict this.
-create policy "Enable insert for everyone (Demo only)"
-  on products for insert
-  with check ( true );
-
-create policy "Enable update for everyone (Demo only)"
-  on products for update
-  using ( true );
-  
-create policy "Enable delete for everyone (Demo only)"
-  on products for delete
-  using ( true );
+-- Writes require a trusted administrator claim set through the Auth Admin API.
+create policy "Store admins insert products" on products for insert to authenticated
+  with check ((select auth.uid()) is not null and (select auth.jwt())->'app_metadata'->>'role'='admin');
+create policy "Store admins update products" on products for update to authenticated
+  using ((select auth.uid()) is not null and (select auth.jwt())->'app_metadata'->>'role'='admin')
+  with check ((select auth.uid()) is not null and (select auth.jwt())->'app_metadata'->>'role'='admin');
+create policy "Store admins delete products" on products for delete to authenticated
+  using ((select auth.uid()) is not null and (select auth.jwt())->'app_metadata'->>'role'='admin');
+revoke all on products from public,anon,authenticated;
+grant select on products to anon;
+grant select,insert,update,delete on products to authenticated;
 
 -- Insert Dummy Data
 insert into products (name, slug, price_inr, price_usd, category, description, images, in_stock, featured, best_seller)

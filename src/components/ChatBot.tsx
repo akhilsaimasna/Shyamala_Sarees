@@ -67,7 +67,7 @@ export default function ChatBot() {
                 body: JSON.stringify({ messages: newMessages }),
             });
             const data = await res.json();
-            setMessages([...newMessages, { role: "assistant", content: data.message }]);
+            setMessages([...newMessages, { role: "assistant", content: typeof data.message === "string" ? data.message : "Please WhatsApp our team at +91 9440653443 for help." }]);
         } catch {
             setMessages([
                 ...newMessages,

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import Image from "next/image";
+import { uploadProblem } from "@/lib/upload-validation";
 import { colourOptions } from "@/components/storefront/catalog";
 
 export default function NewProductPage() {
@@ -39,6 +40,7 @@ export default function NewProductPage() {
         try {
             setUploading(true);
             const files = Array.from(e.target.files);
+            for(const file of files){const problem=uploadProblem(file,"image");if(problem)throw new Error(problem);}
             const newImageUrls: string[] = [];
 
             for (const file of files) {
@@ -82,6 +84,7 @@ export default function NewProductPage() {
         try {
             setUploadingVideo(true);
             const files = Array.from(e.target.files);
+            for(const file of files){const problem=uploadProblem(file,"video");if(problem)throw new Error(problem);}
             const newVideoUrls: string[] = [];
 
             for (const file of files) {
@@ -330,7 +333,7 @@ export default function NewProductPage() {
                             <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:bg-gray-50 transition-colors">
                                 <input
                                     type="file"
-                                    accept="image/*"
+                                    accept="image/jpeg,image/png,image/webp,image/avif,image/gif"
                                     multiple
                                     onChange={handleImageUpload}
                                     disabled={uploading}

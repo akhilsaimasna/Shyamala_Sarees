@@ -69,10 +69,11 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export async function searchProducts(query: string, limit: number = 20): Promise<Product[]> {
     if (!query.trim()) return [];
 
+    const literal = JSON.stringify(`%${query.trim().slice(0,120).replace(/[\\%_]/g, "\\$&")}%`);
     const { data, error } = await supabase
         .from("products")
         .select("*")
-        .or(`name.ilike.%${query}%,category.ilike.%${query}%,description.ilike.%${query}%`)
+        .or(`name.ilike.${literal},category.ilike.${literal},description.ilike.${literal}`)
         .limit(limit);
 
     if (error) {
