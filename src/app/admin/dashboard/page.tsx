@@ -4,24 +4,13 @@ import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { Product } from "@/types";
 
 export default function AdminDashboard() {
-    const router = useRouter();
-    const [authorized, setAuthorized] = useState(false);
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const isAdmin = localStorage.getItem("isAdmin");
-        if (!isAdmin) {
-            router.push("/admin");
-        } else {
-            setAuthorized(true);
-            fetchProducts();
-        }
-    }, [router]);
+    useEffect(() => { void fetchProducts(); }, []);
 
     const fetchProducts = async () => {
         try {
@@ -52,8 +41,6 @@ export default function AdminDashboard() {
             alert("Failed to delete product");
         }
     };
-
-    if (!authorized) return null;
 
     return (
         <div className="min-h-screen bg-gray-50 py-8">

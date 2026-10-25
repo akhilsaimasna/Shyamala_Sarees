@@ -14,14 +14,16 @@ alter table orders enable row level security;
 
 -- Policy: Users can view their own orders
 create policy "Users can view own orders"
-  on orders for select
+  on orders for select to authenticated
   using ( auth.uid() = user_id );
 
 -- Policy: Users can insert their own orders
 create policy "Users can insert own orders"
-  on orders for insert
-  with check ( auth.uid() = user_id );
+  on orders for insert to authenticated
+  with check ( (select auth.uid()) = user_id and status='clicked_whatsapp' and exists (
+    select 1 from public.products p where p.id::text=product_id and p.name=product_name and p.price_inr=price
+  ));
 
--- Policy: Admin can view all orders (Example: if admin email matches)
--- For now, allowing all authenticated users to insert, but only specific reads if needed.
--- But since we are using Supabase Dashboard for admin, RLS mainly protects user data.
+-- Enquiries are not trusted paid orders. Payment/order confirmation needs a server-verified flow.
+revoke all on orders from public,anon,authenticated;
+grant select,insert on orders to authenticated;

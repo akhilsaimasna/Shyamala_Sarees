@@ -1,5 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
+import { readChatMessages, ChatInputError } from "@/lib/chat-validation";
+
+export const maxDuration=20;
 
 const SYSTEM_PROMPT = `You are Shyamala, a friendly and helpful saree shopping assistant for "Shyamala Sarees" - a premium saree store based in Kalwakurthy, Telangana, India.
 
@@ -35,18 +38,23 @@ Important: You represent a family-run traditional saree business. Be warm, perso
 
 export async function POST(req: NextRequest) {
     try {
-        const { messages } = await req.json();
+        const protocol=req.headers.get("x-forwarded-proto") || new URL(req.url).protocol.slice(0,-1);
+        const expectedOrigin=`${protocol}://${req.headers.get("host")}`;
+        if(!["http","https"].includes(protocol) || req.headers.get("origin")!==expectedOrigin)return NextResponse.json({message:"Request origin is not allowed."},{status:403});
+        const messages=await readChatMessages(req);
+        // Paid public AI stays closed until a durable platform rate limit is configured.
+        if(process.env.PUBLIC_CHAT_RATE_LIMITED!=="true")return NextResponse.json({message:"Please WhatsApp our team at +91 9440653443 for personal help."},{status:503});
 
         const apiKey = process.env.GEMINI_API_KEY;
         if (!apiKey) {
             return NextResponse.json(
-                { error: "Chatbot not configured. Please contact us on WhatsApp!" },
-                { status: 500 }
+                { message: "Please contact us on WhatsApp for help." },
+                { status: 503 }
             );
         }
 
         const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", generationConfig:{maxOutputTokens:256} });
 
         // Build conversation history for Gemini
         const history = messages.slice(0, -1).map((msg: { role: string; content: string }) => ({
@@ -69,15 +77,16 @@ export async function POST(req: NextRequest) {
         });
 
         const lastMessage = messages[messages.length - 1].content;
-        const result = await chat.sendMessage(lastMessage);
+        const result = await chat.sendMessage(lastMessage,{signal:AbortSignal.timeout(12000)});
         const response = result.response.text();
 
         return NextResponse.json({ message: response });
     } catch (error) {
-        console.error("Chat error:", error);
+        if(error instanceof ChatInputError)return NextResponse.json({message:error.message},{status:error.status});
+        console.error("Chat provider request failed");
         return NextResponse.json(
             { message: "I'm having trouble right now 🙏 Please WhatsApp us directly at +91 9440653443 for help!" },
-            { status: 200 }
+            { status: 502 }
         );
     }
 }
